@@ -1,6 +1,6 @@
 # ICES - Assignments Documentation
 
-## [ ] Assignment 0.0.1 - Calculator
+## [ ] Assignment 0.0.1 - Calculator (JS)
 
 Build a calculator that supports the following operations:
 
@@ -11,7 +11,7 @@ Build a calculator that supports the following operations:
 
 ---
 
-## [ ] Assignment 0.0.2 - Social Profile Object
+## [ ] Assignment 0.0.2 - Social Profile Object (JS)
 
 Create an object with the following structure:
 
