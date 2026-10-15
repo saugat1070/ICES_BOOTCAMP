@@ -1,0 +1,22 @@
+info:
+  name: ices
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3000/todo/create
+  body:
+    type: json
+    data: |-
+      {
+        "title":"Assignment-004",
+        "notes":"I have to complete this assignment tommorrow"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
