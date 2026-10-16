@@ -70,6 +70,61 @@ app.get("/todo", async (req,res)=>{
    })
 })
 
+// document ko id --> req.params
+// k kura alter garne --> req.body
+
+app.patch("/todo/:id", async (req,res)=>{
+// client will send the data to the server
+const data = req.body;
+const todoId = req.params;
+
+// alter garne data chai db maa exists garcha kii nai vanera check garnu paryo
+// const todo = await TodoModel.findByIdAndUpdate(todoId.id,{
+//     notes: data.notes
+// },
+// {returnDocument: "after"}
+// ); // {} || null
+
+const todo = await TodoModel.findOneAndUpdate(
+{
+    _id: todoId.id
+},
+{
+ notes: data.notes
+},
+{
+    returnDocument: "after"
+}
+) 
+// if not exists then return 404 error
+if(!todo){
+    return res.status(404).json({message: "Todo not found"});
+}
+// if exists then update the data
+
+// then send a response to the client
+return res.status(200).json({
+    message: "Todo update successfully",
+    data: todo
+})
+}) // update the data
+
+app.delete("/todo/:id", async (req, res)=>{
+    const todoId = req.params;
+
+    // const todo = await TodoModel.findByIdAndDelete(todoId.id); // {} || null
+    const todo = await TodoModel.findOneAndDelete({
+        _id: todoId.id
+    });
+    if(!todo){
+        return res.status(404).json({message: "Todo not found"});
+    }
+    return res.status(200).json({
+        message: "Todo deleted successfully",
+    })
+})
+
+
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

@@ -4,14 +4,13 @@ info:
   seq: 1
 
 http:
-  method: POST
-  url: http://localhost:3000/todo/create
+  method: PATCH
+  url: http://localhost:3000/todo/6ad0fd3ce2f663f190b16c53
   body:
     type: json
     data: |-
       {
-        "title":"Assignment-004",
-        "notes":"I have to complete this assignment tommorrow"
+        "notes":"mero name saugat ho"
       }
   auth: inherit
 
@@ -20,3 +19,4 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+​
