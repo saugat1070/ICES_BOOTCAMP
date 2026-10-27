@@ -1,11 +1,12 @@
 import express from "express";
 import { Env } from "./src/config/env.config.js";
 import connectDb from "./src/config/db.config.js";
-
+import todoRoutes from "./src/routes/todo.routes.js";
 const app = express();
 
 app.use(express.json());
 
+app.use("/todo",todoRoutes)   // --> route_name + route_handler
 
 
 function startServer(){
