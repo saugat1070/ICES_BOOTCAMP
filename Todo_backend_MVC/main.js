@@ -2,11 +2,16 @@ import express from "express";
 import { Env } from "./src/config/env.config.js";
 import connectDb from "./src/config/db.config.js";
 import todoRoutes from "./src/routes/todo.routes.js";
+import { sampleMiddleware } from "./src/middleware/sample.middleware.js";
+
 const app = express();
 
-app.use(express.json());
+app.use(express.json()); // default middleware to parse the incoming request body as JSON
+// Global middleware
+app.use(sampleMiddleware); // --> middleware function
 
 app.use("/todo",todoRoutes)   // --> route_name + route_handler
+
 
 
 function startServer(){

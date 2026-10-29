@@ -29,6 +29,7 @@ export async function createTodo(req, res) {  // --> controller or handler funct
 
 export async function getTodos(req, res) {
     const todo = await TodoModel.find(); // [{},{},{}] || []
+    console.log("Request ID:", req["request-id"]);
    return res.status(200).json({
     message: "Todo fetched successfully",
     data: todo
